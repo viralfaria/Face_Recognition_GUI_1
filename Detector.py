@@ -41,6 +41,8 @@ def main_app(name):
 
             if cv2.waitKey(20) & 0xFF == ord('q') or time_elapsed == 20:
                 if pred > 0 : 
+                    cap.release()
+                    cv2.destroyAllWindows()
                     dim =(124,124)
                     img = cv2.imread(f".\\data\\{name}\\{1}{name}.jpg", cv2.IMREAD_UNCHANGED)
                     resized = cv2.resize(img, dim, interpolation = cv2.INTER_AREA)
